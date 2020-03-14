@@ -3,7 +3,13 @@
 ## InFoP - Inquery Form by PHP
 
 PHP を用いた お問い合わせフォーム
-
+## 使い方
+### 起動
+1. `docker-compose up -d`
+2. ブラウザに`http://localhost:8081`にアクセス
+### 終了
+1. `docker-compose down`
+2. `docker-compose ps` で確認
 ## 開発環境
 ## 実装に費やした時間
 ## 実装中に問題となったこと/工夫したところ
