@@ -16,6 +16,9 @@ PHP を用いた お問い合わせフォーム
 ## 改善点
 ## 動作テスト
 ## 参考資料/参考サイト
+- 環境構築
+  - https://qiita.com/nemui_/items/f911be7ffa4f29293fd5
+  - https://qiita.com/kotarella1110/items/634f6fafeb33ae0f51dc
 ## 画面フロー
 
 フォームの動作は以下の流れに従うものとします。
