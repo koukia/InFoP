@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html lang = “ja”>
 <head>
-    <meta charset = “UFT-8”>
-    <title>フォームからデータを受け取る</title>
+  <!-- <meta charset = “UFT-8”> -->
+  <title>フォームからデータを受け取る</title>
 </head>
 <body>
-    <h1>問合せフォーム</h1>
-    <form action="index.php" method="get">
-    <input type = “text” name =“comment/“><br/>
-    <input type = “submit” value =“送信/“>
-    </form>
+  <form action="/index.php" method="post">
+    <h1>お問い合わせフォーム</h1>
+    <div>
+      <div>
+        <label for="category">件名</label>
+        <select name="category" id="category">
+          <option value="opinion">ご意見</option>
+          <option value="impression">ご感想</option>
+          <option value="other">その他</option>
+        </select>
+      </div>
+      <div>
+        <label for="name">お名前</label>
+        <input name="name" id="name" placeholder="つくば太郎">
+      </div>
+      <div>
+        <label for="phone">お電話番号</label>
+        <input name="phone" id="phone" placeholder="012-3456-789">
+      </div>
+      <div>
+        <label for="cotent">お問い合わせ内容</label>
+        <input name="cotent" id="cotent" placeholder="お問い合わせ内容">
+      </div>
+    <div>
+      <button>送信</button>
+      <!-- <input type = “submit” value =“送信/“> -->
+    </div>
+  </form>
 </body>
 </html>
