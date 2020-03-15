@@ -21,7 +21,10 @@ PHP を用いた お問い合わせフォーム
   - https://qiita.com/kotarella1110/items/634f6fafeb33ae0f51dc
 - 入力フォーム
   - https://developer.mozilla.org/ja/docs/Learn/HTML/Forms/Sending_and_retrieving_form_data
-  - 
+- 問合せフォーム
+  - http://www.kanda-it-school.com/sample/php/seminar/php_seminar_sample_code/ch04_2.php
+- ファイルわけ
+  - https://shellcat.hatenadiary.org/entry/20091006/1254834870
 ## 画面フロー
 
 フォームの動作は以下の流れに従うものとします。

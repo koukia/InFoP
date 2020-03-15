@@ -8,7 +8,7 @@
   include('sanitizing.php');
 ?>
 <?php
-  $category = $_POST['category'];//htmlspecialchars
+  $category = $_POST['category'];
   $name = validate_name($_POST['name']);
   $phone = $_POST['phone'];
   $content = $_POST['cotent'];
@@ -26,19 +26,19 @@
     <div>
       <div>
         <label>件名</label>
-        <?php echo $category; ?>
+        <?php echo htmlspecialchars($category); ?>
       </div>
       <div>
         <label>お名前</label>
-        <?php echo $name; ?>
+        <?php echo htmlspecialchars($name); ?>
       </div>
       <div>
         <label>電話番号</label>
-        <?php echo $phone; ?>
+        <?php echo htmlspecialchars($phone); ?>
       </div>
       <div>
         <label>お問い合わせ内容</label>
-        <?php echo nl2br($content); ?>
+        <?php echo nl2br(htmlspecialchars($content)); ?>
       </div>
     </div>
       <input type="button" value="内容を修正" onclick="history.back(-1)">
