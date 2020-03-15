@@ -3,13 +3,22 @@
 ## InFoP - Inquery Form by PHP
 
 PHP を用いた お問い合わせフォーム
-
+## 使い方
+### 起動
+1. `docker-compose up -d`
+2. ブラウザに`http://localhost:8081`にアクセス
+### 終了
+1. `docker-compose down`
+2. `docker-compose ps` で確認
 ## 開発環境
 ## 実装に費やした時間
 ## 実装中に問題となったこと/工夫したところ
 ## 改善点
 ## 動作テスト
 ## 参考資料/参考サイト
+- 環境構築
+  - https://qiita.com/nemui_/items/f911be7ffa4f29293fd5
+  - https://qiita.com/kotarella1110/items/634f6fafeb33ae0f51dc
 ## 画面フロー
 
 フォームの動作は以下の流れに従うものとします。
