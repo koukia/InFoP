@@ -23,6 +23,8 @@ services:
     working_dir: /var/www/
     depends_on:
       - db
+    links:
+      - db:mysql
   db:
     image: mysql:5.7
     restart: always
@@ -30,9 +32,13 @@ services:
       - 13306:3306
     volumes:
       - ./mysql/data:/var/lib/mysql
+      - ./mysql/mysql.conf:/etc/mysql/conf.d/my.cnf
+      - ./mysql/setup.sql:/docker-entrypoint-initdb.d/setup.sql
     environment:
-      MYSQL_ROOT_PASSWORD: secret
-
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: docker_db
+      MYSQL_USER: docker_user
+      MYSQL_PASSWORD: docker_pass
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     environment:
