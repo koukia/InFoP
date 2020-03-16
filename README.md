@@ -25,6 +25,13 @@ PHP を用いた お問い合わせフォーム
   - http://www.kanda-it-school.com/sample/php/seminar/php_seminar_sample_code/ch04_2.php
 - ファイルわけ
   - https://shellcat.hatenadiary.org/entry/20091006/1254834870
+- 入力値のバリデーション
+  - https://techacademy.jp/magazine/22847
+  - http://life-collections.com/dev/programming/php_validation_check#10
+  - https://qiita.com/tukiyo3/items/b994ffafb7f01e79fe34
+- phpunit
+  - https://qiita.com/engineerjyef/items/6d54b8edcc636e29c1e2
+    - `$ docker-compose run php composer update`
 ## 画面フロー
 
 フォームの動作は以下の流れに従うものとします。
