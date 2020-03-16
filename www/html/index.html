@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang = “ja”>
+<html lang="ja">
 <head>
-  <!-- <meta charset = “UFT-8”> -->
-  <title>フォームからデータを受け取る</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>お問い合わせフォーム</title>
 </head>
 <body>
   <form action="/confirm.php" method="post">
@@ -22,15 +22,14 @@
       </div>
       <div>
         <label for="phone">お電話番号</label>
-        <input name="phone" id="phone" placeholder="012-3456-789">
+        <input name="phone" id="phone" placeholder="0123456789 (ハイフンなしで)">
       </div>
       <div>
-        <label for="cotent">お問い合わせ内容</label>
-        <input name="cotent" id="cotent" placeholder="お問い合わせ内容">
+        <label for="inquiry">お問い合わせ内容</label><br>
+        <input name="inquiry" id="inquiry" placeholder="お問い合わせ内容">
       </div>
     <div>
-      <button>送信</button>
-      <!-- <input type = “submit” value =“送信/“> -->
+      <input type="submit" value="送信">
     </div>
   </form>
 </body>
