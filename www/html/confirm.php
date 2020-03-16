@@ -1,12 +1,14 @@
 <?php
-include('/validation.php');
+include('validation.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $category = $_POST['category'];
   $name = $_POST['name'];
+  $email = $_POST['email'];
   $phone = $_POST['phone'];
   $inquiry = $_POST['inquiry'];
   $err_msgs = array();
   $err_msgs['name'] = validate_name($name);
+  $err_msgs['email'] = validate_email($email);
   $err_msgs['phone'] = validate_phone($phone);
   $err_msgs['inquiry'] = validate_inquiry($inquiry);
   $is_passed = true;
@@ -41,6 +43,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php echo htmlspecialchars($name); ?>
         <?php if(!empty($err_msgs['name'])) {?>
           <label><?php echo htmlspecialchars($err_msgs['name']); ?></label>
+        <?php } ?>
+      </div>
+      <div>
+        <label>メールアドレス</label>
+        <?php echo htmlspecialchars($email); ?>
+        <?php if(!empty($err_msgs['email'])) {?>
+          <label><?php echo htmlspecialchars($err_msgs['email']); ?></label>
         <?php } ?>
       </div>
       <div>

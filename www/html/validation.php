@@ -7,6 +7,8 @@ function validate_name($name) {
   }
   return "";
 }
+function validate_email($email) {
+}
 function validate_phone($phone) {
   if (empty($phone)) {
     return "入力してください．";
