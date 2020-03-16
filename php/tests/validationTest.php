@@ -51,4 +51,27 @@ class ValidationTest extends TestCase {
         $actual = InquiryForm\validate_phone("12345678901");
         $this->assertEquals("", $actual);
     }
+    public function testInquiry() {
+        // 未入力
+        $actual = InquiryForm\validate_inquiry("");
+        $this->assertEquals(InquiryForm\PLEASE_INPUT, $actual);
+        // 不正な値1001文字
+        $incorrect_val = "";
+        for ($i=1; $i<=1001; $i++) {
+            $incorrect_val .= "a";
+        }
+        $actual = InquiryForm\validate_inquiry($incorrect_val);
+        $this->assertEquals(InquiryForm\PLEASE_INPUT_WITHIN_1000CHAR, $actual);
+        // 正しい値10000文字
+        $correct_val = "";
+        for ($i=1; $i<=1000; $i++) {
+            $correct_val .= "a";
+        }
+        $actual = InquiryForm\validate_inquiry($correct_val);
+        $this->assertEquals("", $actual);
+        // 正しい値1文字
+        $correct_val = "A";
+        $actual = InquiryForm\validate_inquiry($correct_val);
+        $this->assertEquals("", $actual);
+    }
 }
