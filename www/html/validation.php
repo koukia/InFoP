@@ -8,12 +8,12 @@ const PLEASE_INPUT_CORRECT_EMAIL = "メールアドレスが正しくありま�
 const PLEASE_INPUT_ALPHANUMERIC = "半角数字のみで記入ください．";
 
 function validate_name($name) {
-  if (empty($name)) {
-    return PLEASE_INPUT;
-  } elseif (mb_strlen($name) > 50) {
-    return PLEASE_INPUT_WITHIN_50CHAR;
-  }
-  return "";
+    if (empty($name)) {
+        return PLEASE_INPUT;
+    } elseif (mb_strlen($name) > 50) {
+        return PLEASE_INPUT_WITHIN_50CHAR;
+    }
+    return "";
 }
 function validate_email($email) {
     if (empty($email)) {
