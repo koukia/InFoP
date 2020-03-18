@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 よろしければ「送信する」ボタンを押して下さい．
 </p>
 <div>
-  <form action="/confirm.php" method="post">
+  <form action="/regist.php" method="post">
     <input type="hidden" name="name" value="<?php echo $name; ?>">
     <div>
       <div>
