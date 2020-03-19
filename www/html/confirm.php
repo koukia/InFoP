@@ -34,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </p>
 <div>
   <form action="/regist.php" method="post">
+    <input type="hidden" name="category" value="<?php echo $category; ?>">
     <input type="hidden" name="name" value="<?php echo $name; ?>">
     <input type="hidden" name="phone" value="<?php echo $phone; ?>">
     <input type="hidden" name="email" value="<?php echo $email; ?>">

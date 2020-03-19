@@ -16,21 +16,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // :name, :phone, :email, :inquiry_content
         $sql = "INSERT INTO inquiry (
-            name, phone, email, inquiry_content
+            category, name, phone, email, inquiry_content
         ) VALUES (
-            \"$name\", \"$phone\", \"$email\", \"$inquiry_content\"
+            \"$category\", \"$name\", \"$phone\", \"$email\", \"$inquiry_content\"
         )";
         var_dump($sql);
-
         $statement = $db->prepare($sql);
-        $params = [
-            // ':category' => ,
-            ':name' => $name,
-            ':phone' => $phone,
-            ':email' => $email,
-            ':inquiry_content' => $inquiry_content
-        ];
-        $result = $statement->execute($paramas);
+        $result = $statement->execute();
+
+        // $params = [
+        //     ':category' => $category,
+        //     ':name' => $name,
+        //     ':phone' => $phone,
+        //     ':email' => $email,
+        //     ':inquiry_content' => $inquiry_content
+        // ];
+        // $result = $statement->execute($paramas);
         //TODO:エラー時の処理
 
     } catch (PDOException $e) {
