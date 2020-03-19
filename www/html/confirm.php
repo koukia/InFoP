@@ -48,28 +48,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label>お名前</label>
         <?php echo htmlspecialchars($name); ?>
         <?php if(!empty($err_msgs['name'])) {?>
-          <label><?php echo htmlspecialchars($err_msgs['name']); ?></label>
+          <font color="red"><?php echo htmlspecialchars($err_msgs['name']); ?></font>
         <?php } ?>
       </div>
       <div>
         <label>電話番号</label>
         <?php echo htmlspecialchars($phone); ?>
         <?php if(!empty($err_msgs['phone'])) {?>
-          <label><?php echo htmlspecialchars($err_msgs['phone']); ?></label>
+          <font color="red"><?php echo htmlspecialchars($err_msgs['phone']); ?></font>
         <?php } ?>
       </div>
       <div>
         <label>メールアドレス</label>
         <?php echo htmlspecialchars($email); ?>
         <?php if(!empty($err_msgs['email'])) {?>
-          <label><?php echo htmlspecialchars($err_msgs['email']); ?></label>
+          <font color="red"><?php echo htmlspecialchars($err_msgs['email']); ?></font>
         <?php } ?>
       </div>
       <div>
         <label>お問い合わせ内容</label>
         <?php echo nl2br(htmlspecialchars($inquiry)); ?>
         <?php if(!empty($err_msgs['inquiry'])) {?>
-          <label><?php echo htmlspecialchars($err_msgs['inquiry']); ?></label>
+          <font color="red"><?php echo htmlspecialchars($err_msgs['inquiry']); ?></font>
         <?php } ?>
       </div>
     </div>

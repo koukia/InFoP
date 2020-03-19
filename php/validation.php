@@ -6,7 +6,7 @@ const PLEASE_INPUT_WITHIN_50CHAR = "50文字以下で記入ください．";
 const PLEASE_INPUT_WITHIN_100CHAR = "100文字以下で記入ください．";
 const PLEASE_INPUT_WITHIN_1000CHAR = "1000文字以下で記入ください．";
 const PLEASE_INPUT_CORRECT_EMAIL = "メールアドレスが正しくありません．";
-const PLEASE_INPUT_NUMBER = "半角数字のみで記入ください．";
+const PLEASE_INPUT_NUMBER = "電話番号が正しくありません．";
 
 function validate_name($name) {
     if (empty($name)) {
