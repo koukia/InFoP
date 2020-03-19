@@ -5,13 +5,13 @@ include('validation.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $category = $_POST['category'];
   $name = $_POST['name'];
-  $email = $_POST['email'];
   $phone = $_POST['phone'];
+  $email = $_POST['email'];
   $inquiry = $_POST['inquiry'];
   $err_msgs = array();
   $err_msgs['name'] = validate_name($name);
-  $err_msgs['email'] = validate_email($email);
   $err_msgs['phone'] = validate_phone($phone);
+  $err_msgs['email'] = validate_email($email);
   $err_msgs['inquiry'] = validate_inquiry($inquiry);
   $is_passed = true;
   foreach ($err_msgs as $err_msg) {
@@ -35,6 +35,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div>
   <form action="/regist.php" method="post">
     <input type="hidden" name="name" value="<?php echo $name; ?>">
+    <input type="hidden" name="phone" value="<?php echo $phone; ?>">
+    <input type="hidden" name="email" value="<?php echo $email; ?>">
+    <input type="hidden" name="inquiry" value="<?php echo $inquiry; ?>">
     <div>
       <div>
         <label>件名</label>
@@ -48,17 +51,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php } ?>
       </div>
       <div>
-        <label>メールアドレス</label>
-        <?php echo htmlspecialchars($email); ?>
-        <?php if(!empty($err_msgs['email'])) {?>
-          <label><?php echo htmlspecialchars($err_msgs['email']); ?></label>
-        <?php } ?>
-      </div>
-      <div>
         <label>電話番号</label>
         <?php echo htmlspecialchars($phone); ?>
         <?php if(!empty($err_msgs['phone'])) {?>
           <label><?php echo htmlspecialchars($err_msgs['phone']); ?></label>
+        <?php } ?>
+      </div>
+      <div>
+        <label>メールアドレス</label>
+        <?php echo htmlspecialchars($email); ?>
+        <?php if(!empty($err_msgs['email'])) {?>
+          <label><?php echo htmlspecialchars($err_msgs['email']); ?></label>
         <?php } ?>
       </div>
       <div>

@@ -7,37 +7,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $inquiry = $_POST['inquiry'];
+    $inquiry_content = $_POST['inquiry'];
     try {
         # hostには「docker-compose.yml」で指定したコンテナ名を記載
         $dsn = "mysql:host=mysql_host;dbname=inquiry_form;";
         $db = new PDO($dsn, 'docker', 'docker');
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $mysqli = new mysqli('mysql_host', 'docker', 'docker', 'inquiry_form');
-        if( $mysqli->connect_errno ) {
-            echo $mysqli->connect_errno . ' : ' . $mysqli->connect_error;
-        }
-        $mysqli->set_charset('utf8');
-
-        // set_insquiry($category, $name, $email, $phone, $inquiry);
+        // :name, :phone, :email, :inquiry_content
         $sql = "INSERT INTO inquiry (
             name, phone, email, inquiry_content
         ) VALUES (
-            $name, $email, $phone, $inquiry
+            \"$name\", \"$phone\", \"$email\", \"$inquiry_content\"
         )";
-        $res = $mysqli->query($sql);
-        // $stmt = $db->prepare($sql);
-        // $stmt->execute();
-        // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // var_dump($result);
+        var_dump($sql);
 
-        $sql = "SELECT * FROM inquiry";
-        $stmt = $db->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        var_dump($result);
+        $statement = $db->prepare($sql);
+        $params = [
+            // ':category' => ,
+            ':name' => $name,
+            ':phone' => $phone,
+            ':email' => $email,
+            ':inquiry_content' => $inquiry_content
+        ];
+        $result = $statement->execute($paramas);
+        //TODO:エラー時の処理
+
     } catch (PDOException $e) {
-        echo $e->getMessage();
+        echo "Error" . $e->getMessage();
         exit;
     }
 }
