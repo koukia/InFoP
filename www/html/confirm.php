@@ -1,6 +1,6 @@
 <?php
 namespace InquiryForm;
-include('validation.php');
+include('../php/validation.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $category = $_POST['category'];
