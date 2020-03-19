@@ -32,6 +32,8 @@ PHP を用いた お問い合わせフォーム
 - phpunit
   - https://qiita.com/engineerjyef/items/6d54b8edcc636e29c1e2
     - `$ docker-compose run php composer update`
+  DB PDO
+    https://gray-code.com/php/insert-data-by-using-pdo/
 ## 画面フロー
 
 フォームの動作は以下の流れに従うものとします。

@@ -27,9 +27,15 @@ class ValidationTest extends TestCase {
         // 不正な値
         $actual = InquiryForm\validate_email("1@.v");
         $this->assertEquals(InquiryForm\PLEASE_INPUT_CORRECT_EMAIL, $actual);
-        // ５０文字以内
+        // 正しい値, ５０文字以内
         $actual = InquiryForm\validate_email("a@b.c");
         $this->assertEquals("", $actual);
+        // 正しい値, 100文字
+        $actual = InquiryForm\validate_name("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567@aa");
+        $this->assertEquals("", $actual);
+        // 不正な値, 101文字以内
+        $actual = InquiryForm\validate_name("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567@aaa");
+        $this->assertEquals(InquiryForm\PLEASE_INPUT_WITHIN_100CHAR, $actual);
     }
     public function testPhone() {
         // 未入力

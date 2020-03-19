@@ -1,17 +1,17 @@
 <?php
 namespace InquiryForm;
-include('validation.php');
+include('../php/validation.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $category = $_POST['category'];
   $name = $_POST['name'];
-  $email = $_POST['email'];
   $phone = $_POST['phone'];
+  $email = $_POST['email'];
   $inquiry = $_POST['inquiry'];
   $err_msgs = array();
   $err_msgs['name'] = validate_name($name);
-  $err_msgs['email'] = validate_email($email);
   $err_msgs['phone'] = validate_phone($phone);
+  $err_msgs['email'] = validate_email($email);
   $err_msgs['inquiry'] = validate_inquiry($inquiry);
   $is_passed = true;
   foreach ($err_msgs as $err_msg) {
@@ -33,8 +33,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 よろしければ「送信する」ボタンを押して下さい．
 </p>
 <div>
-  <form action="/confirm.php" method="post">
+  <form action="/regist.php" method="post">
+    <input type="hidden" name="category" value="<?php echo $category; ?>">
     <input type="hidden" name="name" value="<?php echo $name; ?>">
+    <input type="hidden" name="phone" value="<?php echo $phone; ?>">
+    <input type="hidden" name="email" value="<?php echo $email; ?>">
+    <input type="hidden" name="inquiry" value="<?php echo $inquiry; ?>">
     <div>
       <div>
         <label>件名</label>
@@ -44,28 +48,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label>お名前</label>
         <?php echo htmlspecialchars($name); ?>
         <?php if(!empty($err_msgs['name'])) {?>
-          <label><?php echo htmlspecialchars($err_msgs['name']); ?></label>
-        <?php } ?>
-      </div>
-      <div>
-        <label>メールアドレス</label>
-        <?php echo htmlspecialchars($email); ?>
-        <?php if(!empty($err_msgs['email'])) {?>
-          <label><?php echo htmlspecialchars($err_msgs['email']); ?></label>
+          <font color="red"><?php echo htmlspecialchars($err_msgs['name']); ?></font>
         <?php } ?>
       </div>
       <div>
         <label>電話番号</label>
         <?php echo htmlspecialchars($phone); ?>
         <?php if(!empty($err_msgs['phone'])) {?>
-          <label><?php echo htmlspecialchars($err_msgs['phone']); ?></label>
+          <font color="red"><?php echo htmlspecialchars($err_msgs['phone']); ?></font>
+        <?php } ?>
+      </div>
+      <div>
+        <label>メールアドレス</label>
+        <?php echo htmlspecialchars($email); ?>
+        <?php if(!empty($err_msgs['email'])) {?>
+          <font color="red"><?php echo htmlspecialchars($err_msgs['email']); ?></font>
         <?php } ?>
       </div>
       <div>
         <label>お問い合わせ内容</label>
         <?php echo nl2br(htmlspecialchars($inquiry)); ?>
         <?php if(!empty($err_msgs['inquiry'])) {?>
-          <label><?php echo htmlspecialchars($err_msgs['inquiry']); ?></label>
+          <font color="red"><?php echo htmlspecialchars($err_msgs['inquiry']); ?></font>
         <?php } ?>
       </div>
     </div>
